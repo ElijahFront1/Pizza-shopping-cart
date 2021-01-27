@@ -5,7 +5,7 @@ const SortPopup = ({ items }) => {
     const [visiblePopup, setVisiblePopap] = React.useState(false);
     const [activeItem, setActiveItem] = React.useState(0)
     const sortRef = React.useRef();
-    const activeLabel = items[activeItem];
+    const activeLabel = items[activeItem].name;
 
     const toggleVisiblePopup = () => {
         setVisiblePopap(!visiblePopup);
@@ -28,8 +28,8 @@ const SortPopup = ({ items }) => {
     return (
         <div ref={sortRef} className="sort">
             <div className="sort__label">
-                <svg 
-                className={visiblePopup ? 'rotated' : ' '}
+                <svg
+                    className={visiblePopup ? 'rotated' : ' '}
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -47,10 +47,11 @@ const SortPopup = ({ items }) => {
             {visiblePopup && <div className="sort__popup">
                 <ul>
                     {items &&
-                        items.map((name, index) => (
+                        items.map((obj, index) => (
                             <li onClick={() => onSelectItem(index)}
-                                className={activeItem === index ? 'active' : ''} key={`${name}_${index}`}>
-                                {name}
+                                className={activeItem === index ? 'active' : ''}
+                                key={`${obj.type}_${index}`}>
+                                {obj.name}
                             </li>
                         ))}
                 </ul>
