@@ -8,11 +8,6 @@ import { Home, Cart } from './pages';
 import { Route } from 'react-router-dom';
 
 function App() {
-
-  const dispatch = useDispatch();
-
-  React.useEffect(() => { }, []);
-
   return (
     <div className="wrapper">
       <Header />
@@ -26,12 +21,6 @@ function App() {
 }
 
 export default App;
-
-// const mapStateToProps = (state) => {
-//   return {
-//     items: state.pizzas.items,
-//   }
-// }
 
 
 
