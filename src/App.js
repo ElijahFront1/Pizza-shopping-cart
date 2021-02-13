@@ -1,8 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import { useDispatch } from 'react-redux'
-import { fetchPizzas } from './redux/actions/pizzas';
-
 import { Header } from './components';
 import { Home, Cart } from './pages';
 import { Route } from 'react-router-dom';
@@ -12,8 +8,8 @@ function App() {
     <div className="wrapper">
       <Header />
       <div className="content">
-        <Route path="/Cart" component={Cart} exact />
-        <Route path="/" component={Home} exact />
+        <Route path="/Cart" component={Cart} exact /> 
+        <Route path="/" component={Home} exact />{/*Путь / устанавливаем для компоненты Home и тд*. Exact допускает только точное совпадение маршрута со строкой запроса*/}
       </div>
     </div>
   );

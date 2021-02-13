@@ -7,7 +7,7 @@ const pizzas = (state = initialstate, action) => {
     switch (action.type) {
         case 'SET_PIZZAS':
             return {
-                ...state,
+                ...state, //Берем старый state изменяем в нем items: action.payload и isLoaded: true и возвращаем
                 items: action.payload,
                 isLoaded: true,
             }
