@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
 import { fetchPizzas } from '../redux/actions/pizzas';
-import { addPizzaToCart } from '../redux/actions/cart';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 
 const categoryNames = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']; //Массив имен категорий
@@ -36,7 +35,6 @@ function Home() {
             payload: obj,
         })
     }
-
     return (
         <div className="container">
             <div className="content__top">
@@ -49,7 +47,7 @@ function Home() {
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
                 {isLoaded
-                    ? items.map(obj => <PizzaBlock onClickAddPizza={handleAddPizzaToCart} addedCount={cartItems[obj.id] && cartItems[obj.id].length} key={obj.id} isLoading={true} {...obj} />) //Мапим массив пиц
+                    ? items.map(obj => <PizzaBlock onClickAddPizza={handleAddPizzaToCart} addedCount={cartItems[obj.id] && cartItems[obj.id].items.length} key={obj.id} isLoading={true} {...obj} />) //Мапим массив пиц.
                     : Array(12)
                         .fill(0)
                         .map((__, index) => <PizzaLoadingBlock key={index} />)}

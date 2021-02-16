@@ -7,10 +7,7 @@ import { Button } from './';
 
 function Header() {
 
-    const { totalPrice, totalCount } = useSelector(({ cart }) => ({
-        totalPrice: cart.totalPrice,
-        totalCount: cart.totalCount,
-    }))
+    const { totalPrice, totalCount } = useSelector(({ cart }) => cart) //Подписываемся на получение данных из store по изменеию
 
     return (
         <div className="header">
