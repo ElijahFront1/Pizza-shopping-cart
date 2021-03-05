@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const Categories = React.memo(function Categories({items, onClickCategory, activeCategory }){// React.memo() позволяет рендерить только те компоненты значение которых изменилось. Принимааем значения из пропс по средством деструктуризации
+const Categories = React.memo(function Categories({items, onClickCategory, activeCategory }){
     return (
         <div>
             <div className="categories">
@@ -9,10 +9,10 @@ const Categories = React.memo(function Categories({items, onClickCategory, activ
                     <li className={activeCategory === null ? 'active' : ''} 
                     onClick={() => onClickCategory(null)} >Все</li>
 
-                    {items.map((name, index) => ( // Применяем метод map к массиву categoryNames находящемуся в проп items
+                    {items.map((name, index) => ( 
                         <li
                         
-                            className={activeCategory === index ? 'active' : ''} //Если activeCategory === index то присвоить класс active, иначе '' - ничего.
+                            className={activeCategory === index ? 'active' : ''} 
                             onClick={() => onClickCategory(index)}
                             key={`${name}_${index}`}>
                             {name}
@@ -26,7 +26,7 @@ const Categories = React.memo(function Categories({items, onClickCategory, activ
 })
 
 Categories.propTypes = {
-    // activeCategory: PropTypes.oneOf([PropTypes.number, null]),
+    
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     onClickCategory: PropTypes.func.isRequired,
 }

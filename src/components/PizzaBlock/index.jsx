@@ -17,7 +17,7 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
         setActiveSize(index);
     }
 
-    const onAddPizza = () => { //Добавляем пиццу в корзину
+    const onAddPizza = () => { 
         const obj = {
             id,
             name,

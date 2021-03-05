@@ -12,4 +12,3 @@ const rootReducer = combineReducers({
 
 export default rootReducer; 
 
-//Посредством совокупности свойств обьекта rootReducer (файлов на которые они ссылаются - образуется state).
